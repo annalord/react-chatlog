@@ -1,14 +1,17 @@
 import React from 'react';
-import './ChatEntry.css';
 import PropTypes from 'prop-types';
+import TimeStamp from './TimeStamp';
+import './ChatEntry.css';
 
 const ChatEntry = (props) => {
   return (
     <div className="chat-entry local">
-      <h2 className="entry-name">Replace with name of sender</h2>
+      <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
-        <p>Replace with body of ChatEntry</p>
-        <p className="entry-time">Replace with TimeStamp component</p>
+        <p>{props.body}</p>
+        <p className="entry-time">
+          <TimeStamp time={props.timeStamp}></TimeStamp>
+        </p>
         <button className="like">🤍</button>
       </section>
     </div>
@@ -16,7 +19,11 @@ const ChatEntry = (props) => {
 };
 
 ChatEntry.propTypes = {
-  //Fill with correct proptypes
+  sender: PropTypes.string.isRequired,
+  body: PropTypes.string.isRequired,
+  timeStamp: PropTypes.string.isRequired // ?????? is this the right type? Also should I add shape here? 
+// liked?
+// id?
 };
 
 export default ChatEntry;
