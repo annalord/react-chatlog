@@ -18,7 +18,9 @@ const ChatEntry = (props) => {
         <p className="entry-time">
           <TimeStamp time={props.timeStamp}></TimeStamp>
         </p>
-        <button onClick={() => props.onToggleLiked(props.id)}>{likeIcon}</button>
+        <button className="like" onClick={() => props.onToggleLiked(props.id)}>
+          {likeIcon}
+        </button>
       </section>
     </div>
   );
@@ -27,7 +29,7 @@ const ChatEntry = (props) => {
 ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.string.isRequired, // ?????? is this the right type?
+  timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool.isRequired,
   onToggleLiked: PropTypes.func.isRequired, 
   id: PropTypes.number.isRequired
