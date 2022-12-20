@@ -10,20 +10,22 @@ const App = () => {
   const toggleLiked = (id) => { 
     setMessageData(messageData => messageData.map(message => {
       if (message.id === id) {
-        console.log(message.id)
-        console.log(id)
         return {...message, liked: !message.liked};
       } else {
-        console.log(id)
         return message;
       }
     }))
   };
 
+  const getTotalLiked = () => { 
+    return messageData.reduce((total, cv) => {return total + Number(cv.liked)}, 0)
+  }
+
   return (
     <div id="App">
       <header>
-        <h1>Application title</h1>
+        <h1>Chat between Vladimir and Estragon</h1>
+        <h2> {getTotalLiked()} ❤️s</h2>
       </header>
       <main>
         <ChatLog entries={messageData} onToggleLiked={toggleLiked}></ChatLog>
