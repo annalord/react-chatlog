@@ -4,6 +4,12 @@ import TimeStamp from './TimeStamp';
 import './ChatEntry.css';
 
 const ChatEntry = (props) => {
+
+  let likeIcon = '🤍'
+  if (props.liked) {
+    likeIcon = '❤️'
+  }
+
   return (
     <div className="chat-entry local">
       <h2 className="entry-name">{props.sender}</h2>
@@ -12,7 +18,7 @@ const ChatEntry = (props) => {
         <p className="entry-time">
           <TimeStamp time={props.timeStamp}></TimeStamp>
         </p>
-        <button className="like">🤍</button>
+        <button onClick={() => props.onToggleLiked(props.id)}>{likeIcon}</button>
       </section>
     </div>
   );
@@ -21,9 +27,10 @@ const ChatEntry = (props) => {
 ChatEntry.propTypes = {
   sender: PropTypes.string.isRequired,
   body: PropTypes.string.isRequired,
-  timeStamp: PropTypes.string.isRequired // ?????? is this the right type? Also should I add shape here? 
-// liked?
-// id?
+  timeStamp: PropTypes.string.isRequired, // ?????? is this the right type?
+  liked: PropTypes.bool.isRequired,
+  onToggleLiked: PropTypes.func.isRequired, 
+  id: PropTypes.number.isRequired
 };
 
 export default ChatEntry;
