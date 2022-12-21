@@ -11,7 +11,7 @@ const ChatEntry = (props) => {
   }
 
   return (
-    <div className="chat-entry local">
+    <div className={`chat-entry ${props.location}`}>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
         <p>{props.body}</p>
@@ -32,7 +32,8 @@ ChatEntry.propTypes = {
   timeStamp: PropTypes.string.isRequired,
   liked: PropTypes.bool.isRequired,
   onToggleLiked: PropTypes.func.isRequired, 
-  id: PropTypes.number.isRequired
+  id: PropTypes.number.isRequired,
+  location: PropTypes.string.isRequired
 };
 
 export default ChatEntry;
