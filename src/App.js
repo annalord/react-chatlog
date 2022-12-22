@@ -71,7 +71,7 @@ const App = () => {
             <SelectColor sender={local} onSelectColor={setColor}></SelectColor>
           </span>
           <div className='widget' id="heartWidget">{getTotalLiked()} ❤️s</div>
-          <span className='widget'>{remote}'s' color:
+          <span className='widget'>{remote}'s color:
             <SelectColor sender={remote} onSelectColor={setColor}></SelectColor>
           </span>
         </section>
