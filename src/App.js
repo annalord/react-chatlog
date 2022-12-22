@@ -52,7 +52,7 @@ const App = () => {
     setMessageData((messageData) =>
       messageData.map((message) => {
         if (message.sender === sender) {
-          return {...message, color:color };
+          return {...message, color: color };
         } else {
           return message;
         }
@@ -67,11 +67,11 @@ const App = () => {
           Chat between {local} and {remote}
         </h1>
         <section>
-          <span className='widget'> {local}'s color:
+          <span className='widget'>{local}'s color:
             <SelectColor sender={local} onSelectColor={setColor}></SelectColor>
           </span>
           <div className='widget' id="heartWidget">{getTotalLiked()} ❤️s</div>
-          <span className='widget'> {remote}'s' color
+          <span className='widget'>{remote}'s' color:
             <SelectColor sender={remote} onSelectColor={setColor}></SelectColor>
           </span>
         </section>

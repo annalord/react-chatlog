@@ -6,10 +6,7 @@ import '../App.css';
 
 const ChatEntry = (props) => {
 
-  let likeIcon = '🤍'
-  if (props.liked) {
-    likeIcon = '❤️'
-  }
+  const likeIcon = props.liked ? '❤️' : '🤍';
 
   return (
     <div className={`chat-entry ${props.location}`}>
