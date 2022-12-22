@@ -30,7 +30,7 @@ ChatLog.propTypes = {
     liked: PropTypes.bool.isRequired,
     id: PropTypes.number.isRequired,
     location: PropTypes.string.isRequired, 
-    color: PropTypes.string.isRequired
+    color: PropTypes.string
     }
   )),
   onToggleLiked: PropTypes.func.isRequired

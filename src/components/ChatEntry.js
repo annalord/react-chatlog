@@ -35,7 +35,7 @@ ChatEntry.propTypes = {
   onToggleLiked: PropTypes.func.isRequired, 
   id: PropTypes.number.isRequired,
   location: PropTypes.string.isRequired, 
-  color: PropTypes.string.isRequired
+  color: PropTypes.string
 };
 
 export default ChatEntry;
