@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TimeStamp from './TimeStamp';
 import './ChatEntry.css';
+import '../App.css';
 
 const ChatEntry = (props) => {
 
@@ -14,7 +15,7 @@ const ChatEntry = (props) => {
     <div className={`chat-entry ${props.location}`}>
       <h2 className="entry-name">{props.sender}</h2>
       <section className="entry-bubble">
-        <p>{props.body}</p>
+        <p className={props.color} >{props.body}</p>
         <p className="entry-time">
           <TimeStamp time={props.timeStamp}></TimeStamp>
         </p>
@@ -33,7 +34,8 @@ ChatEntry.propTypes = {
   liked: PropTypes.bool.isRequired,
   onToggleLiked: PropTypes.func.isRequired, 
   id: PropTypes.number.isRequired,
-  location: PropTypes.string.isRequired
+  location: PropTypes.string.isRequired, 
+  color: PropTypes.string.isRequired
 };
 
 export default ChatEntry;

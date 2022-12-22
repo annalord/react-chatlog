@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import ChatLog from './components/ChatLog';
 import chatMessages from './data/messages.json';
+import SelectColor from './components/SelectColor';
 
 // iterate through chatMessages and create a list of senders
 const senders = [];
@@ -46,6 +47,19 @@ const App = () => {
     }, 0);
   };
 
+  //callback function for SelectColor 
+  const setColor = (sender, color) => {
+    setMessageData((messageData) =>
+      messageData.map((message) => {
+        if (message.sender === sender) {
+          return {...message, color:color };
+        } else {
+          return message;
+        }
+      })
+    );
+  };
+
   return (
     <div id="App">
       <header>
@@ -53,8 +67,11 @@ const App = () => {
           Chat between {local} and {remote}
         </h1>
         <section>
-          {/* correct className below??? */}
-          <div className="widget">{getTotalLiked()} ❤️s</div>
+          <span className='widget'> {local}'s color:</span>
+            <SelectColor sender={local} onSelectColor={setColor}></SelectColor>
+          <div className='widget'>{getTotalLiked()} ❤️s</div>
+          <span className='widget'> {remote}'s' color </span>
+            <SelectColor sender={remote} onSelectColor={setColor}></SelectColor>
         </section>
       </header>
       <main>

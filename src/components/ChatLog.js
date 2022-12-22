@@ -14,6 +14,7 @@ const ChatLog = (props) => {
         id={entry.id}
         key={entry.id}
         location={entry.location}
+        color={entry.color}
       ></ChatEntry>
     );
   });
@@ -28,7 +29,8 @@ ChatLog.propTypes = {
     timeStamp: PropTypes.string.isRequired, 
     liked: PropTypes.bool.isRequired,
     id: PropTypes.number.isRequired,
-    location: PropTypes.string.isRequired
+    location: PropTypes.string.isRequired, 
+    color: PropTypes.string.isRequired
     }
   )),
   onToggleLiked: PropTypes.func.isRequired
